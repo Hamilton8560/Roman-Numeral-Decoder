@@ -18,62 +18,48 @@ M          1,000
 */
 
 function solution (roman) {
-var num;
-var answer=0;
-var array=[]
-var subtract=false
-    for(var i = 0; i < roman.length; i++){
-        num = roman.charAt(i);
-        switch(num){
-            case "M":
-            array.push(1000);
-            break
-            case 'D':
-            array.push(500)
-            break
-            case 'C':
-            array.push(100)
-            break;
-            case 'L':
-            array.push(50)
-            break
-            case 'X':
-            array.push(10)
-            break
-            case 'V':
-            array.push(5)
-            break
-            case 'I':
-            array.push(1)
-            break
-        }
-}
-  
-for(var i =0; i< array.length; i++){
-    
-   
-if(array[i]<array[i+1]){
-    console.log(array[i+1])
-    array[i+1]=array[i+1]-array[i]
-    console.log(array[i+1])
-    
-}
+    var num;
+    var answer=0;
+    var array=[]
+        for(var i = 0; i < roman.length; i++){
+            num = roman.charAt(i);
+            switch(num){
+                case "M":
+                array.push(1000);
+                break
+                case 'D':
+                array.push(500)
+                break
+                case 'C':
+                array.push(100)
+                break;
+                case 'L':
+                array.push(50)
+                break
+                case 'X':
+                array.push(10)
+                break
+                case 'V':
+                array.push(5)
+                break
+                case 'I':
+                array.push(1)
+                break
+            }
+    }
+      
+    for(var i =0; i< array.length; i++){
+    if(array[i]<array[i+1]){
+        answer-=array[i]
+    }
     else{
-         answer+=array[i]
+        answer+=array[i]
+    }
     }
     
-}
+    
+    return answer;
+    
+    }
 
-   
-
-
-
-
-return answer;
-}
-
-
-
-console.log(solution('XXI'))
-
-
+console.log(solution('CDXC'))
